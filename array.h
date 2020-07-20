@@ -2,6 +2,7 @@
 class u_array 
 {
     unsigned long long int m_size;
+    char * m_buffer;
 
 public:
     u_array();
