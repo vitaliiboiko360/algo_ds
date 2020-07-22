@@ -13,3 +13,8 @@ u_array::~u_array()
         delete[](m_buffer);
     }
 }
+
+int u_array::pop_back()
+{
+    return m_buffer[m_size--];
+}

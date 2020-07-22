@@ -11,6 +11,7 @@ public:
     ~u_array();
 
     void push_back(int value) { m_buffer[m_size++] = value; }
+    int pop_back();
 
     int operator[](unsigned int index) { return m_buffer[index]; }
 
