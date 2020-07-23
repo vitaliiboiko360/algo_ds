@@ -10,13 +10,13 @@ rg gen(295);
 
 int main(int argc, char* argv[])
 {
-    u_array sz_collctn(size_small);
+    u_array sz_collctn;
     
     for(int i=0; i<100; i++)
     {
         sz_collctn.push_back(gen.get());
     }
-    std::cout<<"\n\n";    
+    std::cout<<"\n\n\n";    
 
     for(int i=0; i<100; i++)
     {
