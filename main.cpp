@@ -12,13 +12,14 @@ int main(int argc, char* argv[])
 {
     u_array sz_collctn;
     
-    for(int i=0; i<100; i++)
+    for(int i=0; i<1000; i++)
     {
         sz_collctn.push_back(gen.get());
     }
+    
     std::cout<<"\n\n\n";    
 
-    for(int i=0; i<100; i++)
+    for(int i=0; i<1000; i++)
     {
         std::cout << sz_collctn.pop_back()  << ", ";
     }
