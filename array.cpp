@@ -31,13 +31,14 @@ void u_array::push_back(int value)
 
 int u_array::pop_back()
 {
+    int ret = m_buffer[m_size--];
+
     if (m_size <= ((m_capacity / m_grow_factor) / m_grow_factor))
     {
         shrink_buffer();
     }
 
-    return m_buffer[m_size--];
-
+    return ret;
 }
 
 void u_array::grow_buffer()
