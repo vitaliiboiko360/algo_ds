@@ -42,3 +42,24 @@ void u_list::insert(node* pos, int value)
        
     size++;
 }
+
+u_list::node* u_list::erase(node* pos)
+{
+    if (pos == last)
+    {
+        delete pos;
+        size--;
+        return nullptr;
+    }
+
+    node* ret_node = pos->next;
+
+    pos->prev->next = pos->next;
+    pos->next->prev = pos->prev;
+    
+
+    delete pos;
+    size--;
+
+    return  ret_node;
+}
