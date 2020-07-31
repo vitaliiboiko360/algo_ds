@@ -6,6 +6,8 @@ struct u_tree
         node* left = nullptr;
         node* right = nullptr;
         int value;
+        node() = default;
+        node(int val) : value(val) {}
     };
 
     node* root = nullptr;
@@ -16,4 +18,6 @@ struct u_tree
     node* get(int value);
     void remove(int value);
     
+private:
+    node* put(node* x, int value);
 };

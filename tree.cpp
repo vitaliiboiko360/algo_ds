@@ -15,3 +15,22 @@ u_tree::node* u_tree::get(int value)
 
     return nullptr;
 }
+
+void u_tree::put(int value)
+{
+    root = put(root, value);
+}
+
+u_tree::node* u_tree::put(node* x, int value)
+{
+    if (x == nullptr) return new node(value);
+
+    if (x->value > value)
+        x->left = put(x->left, value);
+    else if (x->value < value)
+        x->right = put(x->right, value);
+    else
+        x->value = value;
+    
+    return x;
+}
