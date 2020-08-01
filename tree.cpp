@@ -34,3 +34,18 @@ u_tree::node* u_tree::put(node* x, int value)
     
     return x;
 }
+
+void remove(int value)
+{
+    return remove(root, value);
+}
+
+void u_tree::remove(node* x, int value)
+{
+    if (x->value > value)
+        remove(x->left, value);
+    if (x->value < value)
+        remove(x->right, value);
+    
+    delete x;
+}

@@ -20,4 +20,7 @@ struct u_tree
     
 private:
     node* put(node* x, int value);
+    void remove(node* x, int value);
+
+    node* delete_minimum();
 };
