@@ -22,5 +22,6 @@ private:
     node* put(node* x, int value);
     void remove(node* x, int value);
 
-    node* delete_minimum();
+    void delete_minimum();
+    void delete_minimum(node* x);
 };

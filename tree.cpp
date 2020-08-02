@@ -35,17 +35,15 @@ u_tree::node* u_tree::put(node* x, int value)
     return x;
 }
 
-void remove(int value)
+void u_tree::delete_minimum()
 {
-    return remove(root, value);
+    return delete_minimum(root);
 }
 
-void u_tree::remove(node* x, int value)
+void u_tree::delete_minimum(node* x)
 {
-    if (x->value > value)
-        remove(x->left, value);
-    if (x->value < value)
-        remove(x->right, value);
+    if (x->left != nullptr)
+        return delete_minimum(x->left);
     
     delete x;
 }
