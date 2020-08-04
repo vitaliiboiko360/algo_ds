@@ -18,10 +18,13 @@ struct u_tree
     node* get(int value);
     void remove(int value);
     
+    void print();
+
 private:
     node* put(node* x, int value);
     void remove(node* x, int value);
 
     void delete_minimum();
     void delete_minimum(node* x);
+
 };

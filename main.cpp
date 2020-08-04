@@ -12,8 +12,6 @@
 const unsigned int size_small = 255;
 rg gen(295);
 
-void print(u_tree& map);
-
 int main(int argc, char* argv[])
 {
     u_tree map;
@@ -35,19 +33,4 @@ int main(int argc, char* argv[])
     print(map);
     
     return 0;
-}
-
-void print_node(u_tree::node* x)
-{
-    if (x == nullptr) return;
-
-    std::cout<<x->value<<"\n";
-
-    print_node(x->left);
-    print_node(x->right);
-}
-
-void print(u_tree& map)
-{
-    print_node(map.root);
 }

@@ -1,5 +1,7 @@
 #include "tree.h"
 
+#include <ncurses.h>
+
 u_tree::node* u_tree::get(int value)
 {
     node* cursor = root;
@@ -46,4 +48,11 @@ void u_tree::delete_minimum(node* x)
         return delete_minimum(x->left);
     
     delete x;
+}
+
+void u_tree::print()
+{
+    initsrc();
+
+    endwin();
 }
