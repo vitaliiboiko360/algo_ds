@@ -50,16 +50,3 @@ void u_tree::delete_minimum(node* x)
     delete x;
 }
 
-void handle_winch(int sig)
-{
-
-}
-
-void u_tree::print()
-{
-    initscr();
-    
-
-
-    endwin();
-}
