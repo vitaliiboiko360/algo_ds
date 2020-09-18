@@ -7,6 +7,7 @@
 #include <limits>
 #include <vector>
 #include <algorithm>
+#include <map>
 
 
 const unsigned int size_small = 255;
@@ -24,13 +25,20 @@ int main(int argc, char* argv[])
         array.push_back(value);
     }
 
+
+    std::map<int, int> tree_map;
+
     for(int i=0; i<100; i++)
     {
-        std::cout<<map.get(array[i])->value<<", ";
+        tree_map[i] = gen.get();
+    }
+
+    for(int i=0; i<100; i++)
+    {
+        std::cout<<tree_map[i]<<", ";
     }
     std::cout<<"\n\n";
 
-    map.print();
     
     return 0;
 }
