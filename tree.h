@@ -5,8 +5,9 @@ struct u_tree
     {
         node* left = nullptr;
         node* right = nullptr;
-        int value;
-        node() = default;
+        int value; 
+        int __counter;
+
         node(int val) : value(val) {}
     };
 
