@@ -21,21 +21,14 @@ int main(int argc, char* argv[])
     for(int i=0; i<100; i++)
     {
         int value = gen.get();
-        map.put(value);
         array.push_back(value);
+        map.put(value);
     }
 
-
-    std::map<int, int> tree_map;
-
+    std::cout<<"map.size()="<<map.size()<<"\n";
     for(int i=0; i<100; i++)
     {
-        tree_map[i] = gen.get();
-    }
-
-    for(int i=0; i<100; i++)
-    {
-        std::cout<<tree_map[i]<<", ";
+        std::cout<<map.get(array[i])<<", ";
     }
     std::cout<<"\n\n";
 

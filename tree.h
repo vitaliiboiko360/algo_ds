@@ -6,15 +6,13 @@ struct u_tree
         node* left = nullptr;
         node* right = nullptr;
         int value; 
-        int __counter;
+        int __count;
 
         node(int val) : value(val) {}
     };
 
     node* root = nullptr;
-
-    unsigned long long size;
-
+    int size() const;
     void put(int value);
     node* get(int value);
     void remove(int value);
@@ -24,6 +22,7 @@ struct u_tree
 private:
     node* put(node* x, int value);
     void remove(node* x, int value);
+    int size(node *) const;
 
     void delete_minimum();
     void delete_minimum(node* x);

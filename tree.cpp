@@ -2,6 +2,17 @@
 
 #include <ncurses.h>
 
+int u_tree::size() const
+{
+    return size(root);
+}
+
+int u_tree::size(node * x) const
+{
+    if (x == nullptr) return 0;
+    return x->__count;
+}
+
 u_tree::node* u_tree::get(int value)
 {
     node* cursor = root;
@@ -34,6 +45,7 @@ u_tree::node* u_tree::put(node* x, int value)
     else
         x->value = value;
     
+    x->__count = 1 + size(x->left) + size(x->right);
     return x;
 }
 
