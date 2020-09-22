@@ -62,3 +62,31 @@ void u_tree::delete_minimum(node* x)
     delete x;
 }
 
+node* floor(node* x, int value)
+{
+    if (x == nullptr)
+        return nullptr;
+
+    if (x->value == value)
+        return x;
+    
+    if (x->value > value)
+        return floor(x->left, value);
+    
+    node* t = floor(x->right, value);
+    if (t != nullptr)
+        return t;
+    
+    return x;
+}
+
+node* u_tree::floor(int value)
+{
+    node* x = floor(root, key);
+    if (x == nullptr) 
+        return nullptr;
+    return x->value;
+}
+
+
+

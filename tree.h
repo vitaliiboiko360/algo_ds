@@ -19,6 +19,8 @@ struct u_tree
     
     void print();
 
+    node* floor(int value);
+
 private:
     node* put(node* x, int value);
     void remove(node* x, int value);
