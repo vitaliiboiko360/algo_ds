@@ -20,11 +20,13 @@ struct u_tree
     void print();
 
     node* floor(int value);
+    int rank(int value);
 
 private:
     node* put(node* x, int value);
     void remove(node* x, int value);
     int size(node *) const;
+    int rank(int value, node* x);
 
     void delete_minimum();
     void delete_minimum(node* x);

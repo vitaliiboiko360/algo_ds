@@ -88,5 +88,22 @@ node* u_tree::floor(int value)
     return x->value;
 }
 
+int rank(int value)
+{
+    return rank(value, root);
+}
+
+int rank(int value, node* x)
+{
+    if (x == nullptr)
+        return 0;
+    
+    if (value < x->value)
+        return rank(value, x->left);
+    else if (value > x->value)
+        return 1 + size(x->left) + rank(value, x->right);
+    
+    return size(x->left);
+}
 
 
