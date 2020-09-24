@@ -28,8 +28,17 @@ int main(int argc, char* argv[])
     std::cout<<"map.size()="<<map.size()<<"\n";
     for(int i=0; i<100; i++)
     {
-        std::cout<<map.get(array[i])<<", ";
+        std::cout<<array[i]<<" ";
     }
+
+    std::cout<<"\n\n\n";
+
+    auto l = [](int value) -> void {
+        std::cout<<value<<" ";
+    };
+
+    map.traverse(l);
+
     std::cout<<"\n\n";
 
     

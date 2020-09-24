@@ -1,6 +1,6 @@
 #include "tree.h"
 
-#include <ncurses.h>
+using node = u_tree::node;
 
 int u_tree::size() const
 {
@@ -62,7 +62,7 @@ void u_tree::delete_minimum(node* x)
     delete x;
 }
 
-node* floor(node* x, int value)
+node* u_tree::floor(node* x, int value)
 {
     if (x == nullptr)
         return nullptr;
@@ -82,18 +82,18 @@ node* floor(node* x, int value)
 
 node* u_tree::floor(int value)
 {
-    node* x = floor(root, key);
+    node* x = floor(root, value);
     if (x == nullptr) 
         return nullptr;
-    return x->value;
+    return x;
 }
 
-int rank(int value)
+int u_tree::rank(int value)
 {
     return rank(value, root);
 }
 
-int rank(int value, node* x)
+int u_tree::rank(int value, node* x)
 {
     if (x == nullptr)
         return 0;
@@ -106,4 +106,19 @@ int rank(int value, node* x)
     return size(x->left);
 }
 
+void u_tree::traverse(node* x, void(*apply_on_each_value)(int value))
+{
+    if (x == nullptr)
+        return;
+
+    traverse(x->left, apply_on_each_value);
+    traverse(x->right, apply_on_each_value);
+
+    return apply_on_each_value(x->value);
+}
+
+void u_tree::traverse(void(*apply_on_each_value)(int value))
+{
+    traverse(root, apply_on_each_value);
+}
 
