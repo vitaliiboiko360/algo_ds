@@ -1,16 +1,15 @@
 
+struct node
+{
+    node* left = nullptr;
+    node* right = nullptr;
+    int value; 
+    int __count;
+
+    node(int val) : value(val) {}
+};
 struct u_tree
 {
-    struct node
-    {
-        node* left = nullptr;
-        node* right = nullptr;
-        int value; 
-        int __count;
-
-        node(int val) : value(val) {}
-    };
-
     node* root = nullptr;
     int size() const;
     void put(int value);
@@ -22,6 +21,7 @@ struct u_tree
     node* floor(int value);
     int rank(int value);
     void traverse(void(*apply_on_each_value)(int));
+
 
 private:
     int size(node *) const;
