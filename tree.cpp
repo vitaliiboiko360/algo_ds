@@ -1,6 +1,5 @@
 #include "tree.h"
-
-using node = u_tree::node;
+#include "queue.h"
 
 int u_tree::size() const
 {
@@ -13,7 +12,7 @@ int u_tree::size(node * x) const
     return x->__count;
 }
 
-u_tree::node* u_tree::get(int value)
+node* u_tree::get(int value)
 {
     node* cursor = root;
     while(cursor)
@@ -34,7 +33,7 @@ void u_tree::put(int value)
     root = put(root, value);
 }
 
-u_tree::node* u_tree::put(node* x, int value)
+node* u_tree::put(node* x, int value)
 {
     if (x == nullptr) return new node(value);
 
@@ -106,19 +105,20 @@ int u_tree::rank(int value, node* x)
     return size(x->left);
 }
 
-void u_tree::traverse(node* x, void(*apply_on_each_value)(int value))
+void u_tree::inorder(node* x, u_queue* queue)
 {
     if (x == nullptr)
         return;
 
-    traverse(x->left, apply_on_each_value);
-    traverse(x->right, apply_on_each_value);
-
-    return apply_on_each_value(x->value);
+    inorder(x->left, queue);
+    queue->push_back(new qu_node{x});
+    inorder(x->right, queue);
 }
 
-void u_tree::traverse(void(*apply_on_each_value)(int value))
+u_queue u_tree::keys()
 {
-    traverse(root, apply_on_each_value);
+    u_queue queue;
+    inorder(root, &queue);
+    return queue;
 }
 

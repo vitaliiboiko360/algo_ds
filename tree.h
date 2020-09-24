@@ -1,15 +1,13 @@
+#ifndef TREE
+#define TREE
 
-struct node
-{
-    node* left = nullptr;
-    node* right = nullptr;
-    int value; 
-    int __count;
+#include "node.h"
 
-    node(int val) : value(val) {}
-};
-struct u_tree
+class u_queue;
+
+class u_tree
 {
+public:
     node* root = nullptr;
     int size() const;
     void put(int value);
@@ -20,14 +18,14 @@ struct u_tree
 
     node* floor(int value);
     int rank(int value);
-    void traverse(void(*apply_on_each_value)(int));
+    u_queue keys();
 
 
 private:
     int size(node *) const;
     node* floor(node* x, int value);
     int rank(int value, node* x);
-    void traverse(node* x, void(*apply_on_each_value)(int value));
+    void inorder(node* x, u_queue* queue);
 
     node* put(node* x, int value);
     void remove(node* x, int value);
@@ -36,3 +34,5 @@ private:
     void delete_minimum(node* x);
 
 };
+
+#endif //TREE

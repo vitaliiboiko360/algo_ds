@@ -2,6 +2,7 @@
 #include "array.h"
 #include "list.h"
 #include "tree.h"
+#include "queue.h"
 
 #include <iostream>
 #include <limits>
@@ -30,14 +31,11 @@ int main(int argc, char* argv[])
     {
         std::cout<<array[i]<<" ";
     }
-
-    std::cout<<"\n\n\n";
-
-    auto l = [](int value) -> void {
-        std::cout<<value<<" ";
-    };
-
-    map.traverse(l);
+    auto keys = map.keys();
+    for(auto it = keys.begin(); it != keys.end(); it++)
+    {
+        std::cout<<*it<<" ";
+    }
 
     std::cout<<"\n\n";
 

@@ -1,4 +1,7 @@
-#include "tree.h"
+#ifndef QUEUE
+#define QUEUE
+
+#include "node.h"
 
 class qu_node
 {
@@ -10,9 +13,8 @@ public:
 
     qu_node* next{ nullptr };
 
-private:
     int value;
-}
+};
 
 class u_iterator
 {
@@ -22,15 +24,15 @@ public:
     {
     }
 
-    u_iterator& operator=(node* x)
+    u_iterator& operator=(qu_node* x)
     {
         this->current_node = x;
         return *this;
     }
 
-    u_iterator& oeprator++()
+    u_iterator& operator++()
     {
-        if (curren_node)
+        if (current_node)
             current_node = current_node->next;
         return *this;
     }
@@ -49,7 +51,7 @@ public:
 
     int operator*()
     {
-        return curren_node->value;
+        return current_node->value;
     }
 
 private:
@@ -73,3 +75,5 @@ public:
         return u_iterator(nullptr);
     }
 };
+
+#endif //QUEUE
